@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les bandes dessinées de l'auteur{% endblock %}
+
+{% block body %}
+
+{% for produit in produits %}
+<article>
+    <h2>{{ produit.titre }}</h2>
+    <div>
+        <p>{{ produit.image }}</p>
+        <div class="content">
+            {% if produit.image in produits %}
+            <img src="{{ asset('images/') }}{{ produit.image}}{{'.jpg'}}" alt="{{ produit.title}}" class="thumbnail">
+            {% else %}
+            <img src="{{ asset('images/defaut.jpg') }}" alt="aucune image" class="thumbnail">
+            {% endif %}
+                <p>{{ produit.resume }}</p>
+                {{ produit.image }}
+                <hr>
+            </img>
+        </div>
+    </div>
+</article>
+{% endfor %}
+
+{% endblock %}
