@@ -28,4 +28,8 @@ body {
     color: #7a787a;
   }
 
+  .btn-secondary:hover {
+    box-shadow: 3px 3px 3px 3px grey;
+  }
+
   

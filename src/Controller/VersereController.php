@@ -17,7 +17,7 @@ class VersereController extends AbstractController
     {
         $produits = $repo->findAll();
         return $this->render('versere/index.html.twig', [
-            'controller_name' => 'Liste des chapitres',
+            'controller_name' => 'Œuvres d\'artistes',
             'produits' => $produits
         ]);
     }
@@ -33,10 +33,12 @@ class VersereController extends AbstractController
     }
 
       /**
-     * @Route("/versere/1", name="versere_show")
+     * @Route("/oeuvres/{id}", name="versere_show")
      */
-    public function show() {
-        
-        return $this->render('versere/show.html.twig');
+    public function show($id, ProduitRepository $repo) {
+        $produit = $repo->find($id);
+        return $this->render('versere/show.html.twig',[
+            'produit' => $produit
+        ]);
     }
 }

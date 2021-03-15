@@ -1,27 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les bandes dessinées de l'auteur{% endblock %}
+{% block title %}Œuvres d'artistes{% endblock %}
 
 {% block body %}
 
-{% for produit in produits %}
-<article>
-    <h2>{{ produit.titre }}</h2>
-    <div>
-        <p>{{ produit.image }}</p>
-        <div class="content">
-            {% if produit.image in produits %}
-            <img src="{{ asset('images/') }}{{ produit.image}}{{'.jpg'}}" alt="{{ produit.title}}" class="thumbnail">
-            {% else %}
-            <img src="{{ asset('images/defaut.jpg') }}" alt="aucune image" class="thumbnail">
-            {% endif %}
-                <p>{{ produit.resume }}</p>
-                {{ produit.image }}
-                <hr>
-            </img>
-        </div>
+<style>
+    .content img { width: 300px; height:auto;}
+</style>
+
+    <div class="content">
+        
+        <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}">
+        
+        <br><br><br>
+        <h4>{{ produit.titre}}</h4>
+        <p>{{ produit.resume }}</p>
+        
+        
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
+        
     </div>
-</article>
-{% endfor %}
+  
+    
+  
+   
 
 {% endblock %}

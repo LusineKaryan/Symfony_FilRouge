@@ -4,39 +4,41 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .page-title{ margin: 1em auto;}
+    .card { width: 150px; height:auto;}
+    .btn { background-color: #b6b1b5;}
+    .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 3px 3px 3px 3px #7a787a;}
+    .btn a { color: #70185d; text-decoration:none;}
 </style>
 
 
-    <h1 class="page-title">{{ controller_name }}! ✅</h1>
 
 
-    
+    <h1 class="page-title">{{ controller_name }}! </h1>
+    <br><br>
+
     {% for produit in produits %}
-    <div class="container">
+    <div class="container justify-content-space-between">
         <div class="row">
-            <div class="col md-4">
-                <img src="{{ asset('images/') }}{{ produit.image }}{{'.jpg'}}" alt="{{ produit.titre}}" class="thumbnail">
-                <img src="http://placehold.it/350x350" alt="">
+            
+            <div class="card col md-4">
+                <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}" class="minimized">   
             </div>
+            
             <div class="col md-4">
-                <h4><a href="{{ path('versere_show', {id :produit.id}) }}">{{ produit.titre }}</a></h4>
+                <h4><a href="{{ path('versere_show', {id :produit.id}) }}" style="color:#ECEFF1;">{{ produit.titre }}</a></h4>
+                
                 
                 <p>{{ produit.resume }}</p>
+               
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
+                <br>
+                <button class="btn"><a href="{{ path('versere_show', {id :produit.id}) }}">Voire plus...</a></button>
             </div>
         </div>
     </div>
     <hr>
     
     {% endfor %}
-   
-
-    {# This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/aniba/OneDrive/Documents/GitHub/Symfony_FilRouge/src/Controller/VersereController.php'|file_link(0) }}">src/Controller/VersereController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/aniba/OneDrive/Documents/GitHub/Symfony_FilRouge/templates/versere/index.html.twig'|file_link(0) }}">templates/versere/index.html.twig</a></code></li>
-    </ul> #}
 
 {% endblock %}
