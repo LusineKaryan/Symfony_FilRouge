@@ -3,6 +3,7 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
+
 <style>
     .btn {background: #a87a9e; border-color:grey;}
     .btn:hover {background: #772953; box-shadow:2px 2px #686d69;}
@@ -11,10 +12,11 @@
 <div class="example-wrapper">
     {{ form_start(contact_form) }}
 
-    {{ form_widget(contact_form) }}
+    {{ form_row(contact_form.name, {'label': 'Nom d\'utilisateur', 'attr': {'class': 'input-group', 'placeholder': 'Votre nom d\'utilisateur...' }}) }}
+    {{ form_row(contact_form.from, {'label': 'Adresse email', 'attr': {'class': 'input-group', 'placeholder': 'Adresse email...' }}) }}
+    {{ form_row(contact_form.message, {'label': 'Message', 'attr': {'class': 'input-group', 'placeholder': 'Votre message...' }}) }}
 
-    <input type="submit" value="Envoyer" class="btn btn-success">
+    <input type="submit" value="envoyer" class="btn btn-success" />
     {{ form_end(contact_form) }}
-    
 </div>
 {% endblock %}
