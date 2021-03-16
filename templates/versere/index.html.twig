@@ -7,18 +7,24 @@
     .page-title{ margin: 1em auto;}
     .card { width: 150px; height:auto;}
     .btn { background-color: #b6b1b5;}
-    .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 3px 3px 3px 3px #7a787a;}
+    .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 2px 2px 2px 2px #7a787a;}
     .btn a { color: #70185d; text-decoration:none;}
+     a.page-link {color: #70185d;}
+    .active a.page-link {color:blanchedalmond; background-color:#a87a9e; border-color: #70185d}
+    .active a.page-link:hover {color:teal;}    
 </style>
 
 
 
 
     <h1 class="page-title">{{ controller_name }}! </h1>
-    <br><br>
-
+  
+    <div class="navigation">
+        {{ knp_pagination_render(produits) }}
+    </div>
+    <br>  
     {% for produit in produits %}
-    <div class="container justify-content-space-between">
+    <div class="container justify-content-between">
         <div class="row">
             
             <div class="card col md-4">
@@ -27,7 +33,6 @@
             
             <div class="col md-4">
                 <h4><a href="{{ path('versere_show', {id :produit.id}) }}" style="color:#ECEFF1;">{{ produit.titre }}</a></h4>
-                
                 
                 <p>{{ produit.resume }}</p>
                
@@ -40,5 +45,9 @@
     <hr>
     
     {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(produits) }}
+    </div>
 
 {% endblock %}

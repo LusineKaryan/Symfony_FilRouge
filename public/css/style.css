@@ -32,4 +32,13 @@ body {
     box-shadow: 3px 3px 3px 3px grey;
   }
 
+  .active a.page-link {
+    color:blanchedalmond;
+    background-color: indigo;
+    border-color: yellow;
+}
+
+.active a.page-link:hover {
+    color:teal;
+}    
   

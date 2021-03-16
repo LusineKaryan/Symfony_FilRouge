@@ -5,10 +5,12 @@
 {% block body %}
 
 <style>
-    .content img { width: 300px; height:auto;}
+    .content img {width: 300px; height:auto;}
+    .h2 {margin:30px auto;}
 </style>
 
     <div class="content">
+        <h2 class="h2">Description détaillée de la peinture</h2>
         
         <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}">
         

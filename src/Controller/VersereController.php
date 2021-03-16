@@ -4,18 +4,30 @@ namespace App\Controller;
 
 
 use App\Repository\ProduitRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class VersereController extends AbstractController
 {
     /**
      * @Route("/versere", name="versere")
      */
-    public function index(ProduitRepository $repo): Response
+    public function index(ProduitRepository $repo, PaginatorInterface $paginator, request $request): Response
     {
-        $produits = $repo->findAll();
+        $allProducts = $repo->findAll();
+        // Paginate the results of the query
+        $produits = $paginator->paginate(
+        // Doctrine Query, not results    
+            $allProducts,
+        // Define the page parameter
+            $request->query->getInt('page', 1),
+        // Items per page  
+            3
+        ); 
+
         return $this->render('versere/index.html.twig', [
             'controller_name' => 'Œuvres d\'artistes',
             'produits' => $produits
