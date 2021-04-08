@@ -1,6 +1,7 @@
 body {
-    background-color:rgb(194, 186, 189);
-    background-size: cover;
+    background-color:rgb(185, 169, 174);
+    /* background-image: url(../public/images/unnamed.jpg);
+    background-size: cover; */
 }
 
 .navbar-brand {
