@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Repository\AuteurRepository;
 use App\Repository\ProduitRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,10 +47,13 @@ class VersereController extends AbstractController
       /**
      * @Route("/oeuvres/{id}", name="versere_show")
      */
-    public function show($id, ProduitRepository $repo) {
+    public function show($id, ProduitRepository $repo, AuteurRepository $repos): Response 
+    {
         $produit = $repo->find($id);
+        $auteur = $repos->find($id);
         return $this->render('versere/show.html.twig',[
-            'produit' => $produit
+            'produit' => $produit,
+            'auteur' => $auteur
         ]);
     }
 }

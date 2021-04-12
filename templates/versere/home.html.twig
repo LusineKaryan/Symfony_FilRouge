@@ -16,15 +16,13 @@
       padding: 2px 6px;
     } 
     
-    .card { 
+    .photo { 
       width:300px;
       height:auto;
-      border: 2px solid #624964;
-      border-radius: 5px;
       margin:10px auto;
     }
 
-    .card :hover { 
+    .photo:hover { 
       box-shadow: 3px 3px 3px 3px #7a787a;
     }
 
@@ -38,7 +36,20 @@
       width: 100%;
       margin:10px auto; 
     }
+
+   .scale {
+     width:300px;
+     height:auto;
+     border: 2px solid #624964;
+     border-radius: 5px;
+     transition: 1s; /* Le temps de l'effet */
+   }
+   .scale:hover {
+     transform: scale(1.2); /* Agrandir l'image */
+     border: 2px solid #624964;
+   }
   </style>
+  
 
 <br>
     <h1 style="color: #ECEFF1; font-family:'Georgia';"> {{ title }}! </h1>
@@ -48,18 +59,18 @@
 <div class="container">
   <div class="row">
     <div class="col md-4">
-      <div class="card">
-            <img src="{{ asset('images/autumn.jpg') }}" alt="autumn">
+      <div class="photo">
+        <img src="{{ asset('images/autumn.jpg') }}" alt="autumn" class="scale">
       </div>
     </div>
     <div class="col md-4">
-      <div class="card">
-            <img src="{{ asset('images/le regard.jpg') }}" alt="le regard">
+      <div class="photo">
+        <img src="{{ asset('images/le regard.jpg') }}" alt="le regard" class="scale">
       </div>
     </div>
     <div class="col md-4">
-      <div class="card">
-            <img src="{{ asset('images/bateau.jpg') }}" alt="bateau">
+      <div class="photo">
+        <img src="{{ asset('images/bateau.jpg') }}" alt="bateau" class="scale">
       </div>
     </div>
   </div>

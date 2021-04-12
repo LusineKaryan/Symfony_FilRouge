@@ -5,7 +5,7 @@
 {% block body %}
 <style>
     .page-title{ margin: 1em auto;}
-    .card { width: 150px; height:auto;}
+    .card { width: 300px; height:auto;}
     .btn { background-color: #b6b1b5;}
     .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 2px 2px 2px 2px #7a787a;}
     .btn a { color: #70185d; text-decoration:none;}
@@ -13,8 +13,6 @@
     .active a.page-link {color:blanchedalmond; background-color:#772953; border-color: #70185d}
     .active a.page-link:hover {color:teal;}    
 </style>
-
-
 
 
     <h1 class="page-title">{{ controller_name }}! </h1>
@@ -27,12 +25,14 @@
     <div class="container justify-content-between">
         <div class="row">
             
-            <div class="card col md-4">
-                <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}" class="minimized">   
+            <div class="col md-4">
+                <div class="card">
+                <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}" class="minimized"> 
+                </div>     
             </div>
             
             <div class="col md-4">
-                <h4><a href="{{ path('versere_show', {id :produit.id}) }}" style="color:#ECEFF1;">{{ produit.titre }}</a></h4>
+                <h4><a href="{{ path('versere_show', { id :produit.id }) }}" style="color:#ECEFF1;">{{ produit.titre }}</a></h4>
                 
                 <p>{{ produit.resume }}</p>
                

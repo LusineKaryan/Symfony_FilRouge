@@ -1,5 +1,6 @@
 body {
-    background-color:rgb(185, 169, 174);
+    background-color:rgb(189, 185, 186);
+    position: relative; /*Dlya zakrepleniya footera k nizu*/
     /* background-image: url(../public/images/unnamed.jpg);
     background-size: cover; */
 }
