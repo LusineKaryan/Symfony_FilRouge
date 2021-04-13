@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Auteur;
+use App\Entity\Produit;
 use App\Repository\AuteurRepository;
 use App\Repository\ProduitRepository;
 use Knp\Component\Pager\PaginatorInterface;

@@ -38,4 +38,14 @@ class Genre
 
         return $this;
     }
+    /**
+     * Generate the magic metod
+     * 
+     */
+
+    public function __toString(){
+        // To show the name the Genre in the select
+        return $this->genre;
+        // To show the id  the Genre in the select
+    }
 }
