@@ -2,9 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Auteur;
-use App\Entity\Produit;
-use App\Repository\AuteurRepository;
 use App\Repository\ProduitRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class VersereController extends AbstractController
 {
     /**
-     * @Route("/versere", name="versere")
+     * @Route("/oeuvres", name="versere")
      */
     public function index(ProduitRepository $repo, PaginatorInterface $paginator, request $request): Response
     {
@@ -49,13 +46,13 @@ class VersereController extends AbstractController
       /**
      * @Route("/oeuvres/{id}", name="versere_show")
      */
-    public function show($id, ProduitRepository $repo, AuteurRepository $repos): Response 
+    public function show($id, ProduitRepository $repo): Response 
     {
         $produit = $repo->find($id);
-        $auteur = $repos->find($id);
+       
         return $this->render('versere/show.html.twig',[
-            'produit' => $produit,
-            'auteur' => $auteur
+            'produit' => $produit
+            
         ]);
     }
 }

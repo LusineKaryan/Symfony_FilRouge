@@ -37,7 +37,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Les oeuvres');
             yield MenuItem::linkToCrud('Auteurs', 'fas fa-tags', Auteur::class);
             yield MenuItem::linkToCrud('Produits', 'fas fa-tags', Produit::class);
-            yield MenuItem::linkToCrud('Genres', 'fas fa-tags', Genre::class);
-            
+            yield MenuItem::linkToCrud('Genres', 'fas fa-tags', Genre::class);       
     }
 }

@@ -35,7 +35,6 @@ class SecurityController extends AbstractController
            $manager->flush();
        }
 
-
        return $this->render('security/registration.html.twig', [
            'form' => $form->createView()
        ]);

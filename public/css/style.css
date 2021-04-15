@@ -42,5 +42,11 @@ body {
 
 .active a.page-link:hover {
     color:teal;
-}    
+}  
+
+.footer {
+  background-color: rgb(146, 135, 145);
+  height: 100px;
+  margin-top: 40px;
+}
   
