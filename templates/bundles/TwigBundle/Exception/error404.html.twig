@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page non trouvée{% endblock %}
+
+{% block body %}
+<h1>Page non trouvée</h1>
+<p>La page que vous cherchez n'a pas été trouvée.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Code de l'erreur : {{ status_code }}</h3>
+            <p>Message de l'erreur : {{ status_text }}</p>
+            <p><a href="{{ path('versere')}}">Voire les oevres</a></p>
+        </div>
+        <div class="col-6">
+            <p><img src="{{ asset ('images/palette.gif')}}" alt=""></p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

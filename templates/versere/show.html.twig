@@ -5,21 +5,33 @@
 {% block body %}
 
 <style>
-    .content img {width: 300px; height:auto;}
+    .image {width: 300px; height:auto;}
     .h2 {margin:30px auto;}
+    .btn { background-color: #b6b1b5; border: 1px solid #70185d; color: #70185d;}
+    .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 2px 2px 2px 2px #7a787a;}
+    
 </style>
 
     <div class="content">
         <h2 class="h2">Description détaillée de la peinture</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}" class="image">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h4>{{ produit.titre}}</h4>
+                    <p>{{ produit.resume }}</p>
+                    <h5> Auteur: {{ produit.auteur }}</h5>
+                    <h6>Date de la création - {{ produit.createddate|date("m/d/Y") }}</h6>  {# Pour afficher la date au format string #}
+                    <h6>Genre - {{ produit.genre }}</h6>
+                    <br><br>
+                    <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a>
+                </div>
+            
+            </div>
+        </div>
         
-        <img src="{{ asset('images/') }}{{ produit.image }}" alt="{{ produit.titre}}">
-        
-        <br><br><br>
-        <h4>{{ produit.titre}}</h4>
-        <p>{{ produit.resume }}</p>
-        <h5> Auteur: {{ produit.auteur }}</h5>
-        <h6>Date de la création - {{ produit.createddate|date("m/d/Y") }}</h6>  {# Pour afficher la date au format string #}
-        <h6>Genre - {{ produit.genre }}</h6>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
         

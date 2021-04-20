@@ -7,9 +7,14 @@
 <style>
     .btn {background: #a87a9e; border-color:grey;}
     .btn:hover {background: #772953; box-shadow:2px 2px #686d69;}
+    .btn:active {background: #772953; box-shadow:2px 2px #686d69;}
 </style>
 
+
 <div class="example-wrapper">
+    <h3>Contactez-nous</h3>
+    <br>
+
     {{ form_start(contact_form) }}
 
     {{ form_row(contact_form.name, {'label': 'Nom d\'utilisateur', 'attr': {'class': 'input-group', 'placeholder': 'Votre nom d\'utilisateur...' }}) }}
@@ -18,5 +23,6 @@
 
     <input type="submit" value="Envoyer" class="btn btn-success" />
     {{ form_end(contact_form) }}
+
 </div>
 {% endblock %}

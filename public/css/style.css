@@ -3,6 +3,11 @@ body {
     position: relative; /*Dlya zakrepleniya footera k nizu*/
     /* background-image: url(../public/images/unnamed.jpg);
     background-size: cover; */
+    height: 100%;
+}
+
+html {
+	height: 100%;
 }
 
 .navbar-brand {
@@ -34,15 +39,18 @@ body {
     box-shadow: 3px 3px 3px 3px grey;
   }
 
-  .active a.page-link {
-    color:blanchedalmond;
-    background-color: indigo;
-    border-color: yellow;
-}
-
-.active a.page-link:hover {
-    color:teal;
-}  
+  a.page-link {
+    color: #70185d;
+  }
+    .active a.page-link {
+      color:blanchedalmond; 
+      background-color:#772953; 
+      border-color: #70185d
+  }
+    .active a.page-link:hover {
+      color:teal;
+  }  
+ 
 
 .image {
 	margin:20px; 

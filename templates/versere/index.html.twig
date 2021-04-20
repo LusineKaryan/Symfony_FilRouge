@@ -6,7 +6,7 @@
 <style>
     .page-title{ margin: 1em auto; }
     .image { max-width: 80%; height:auto; }
-    .btn { background-color: #b6b1b5; }
+    .btn { background-color: #b6b1b5; border: 1px solid #70185d; color: #70185d;}
     .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 2px 2px 2px 2px #7a787a;}
     .btn a { color: #70185d; text-decoration:none; }
      a.page-link {color: #70185d;}
@@ -37,7 +37,10 @@
                
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
                 <br>
-                <button class="btn"><a href="{{ path('versere_show', {id :produit.id}) }}">Voire plus...</a></button>
+                <a href="{{ path('versere_show', {id :produit.id}) }}" class="btn">Voire plus...</a>
+                
+                <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success ml-2"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a>
+            
             </div>
         </div>
     </div>

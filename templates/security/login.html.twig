@@ -3,6 +3,9 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
+<style>
+.example-wrapper { max-width: 700px; width: 95%;  }
+</style>
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -13,7 +16,7 @@
             Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     {% endif %}
-
+    <br>
     <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
     <label for="inputEmail">Votre email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
@@ -39,4 +42,7 @@
         Se connecter
     </button>
 </form>
+<br><br>
+<h4 class="h4 mb-3 font-weight-normal">Pas encore inscrit?</h4>
+<a href="{{ path('security_registration') }}" style="color:#772953;">Créer votre compte</a>
 {% endblock %}
