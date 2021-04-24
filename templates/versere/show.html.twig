@@ -24,9 +24,12 @@
                     <p>{{ produit.resume }}</p>
                     <h5> Auteur: {{ produit.auteur }}</h5>
                     <h6>Date de la création - {{ produit.createddate|date("m/d/Y") }}</h6>  {# Pour afficher la date au format string #}
-                    <h6>Genre - {{ produit.genre }}</h6>
+                    <h6>Genre : {{ produit.genre }}</h6>
+                    <hr>
+                    <h6>Prix : {{ produit.prix }} €</h6>
+
                     <br><br>
-                    <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a>
+                    <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a><br>
                 </div>
             
             </div>

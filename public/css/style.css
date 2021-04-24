@@ -1,13 +1,16 @@
-body {
-    background-color:rgb(189, 185, 186);
-    position: relative; /*Dlya zakrepleniya footera k nizu*/
-    /* background-image: url(../public/images/unnamed.jpg);
-    background-size: cover; */
-    height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+} 
+
+html, body {
+  height: 100%;
 }
 
-html {
-	height: 100%;
+body {
+    background-color:rgb(189, 185, 186);
+    /* background-image: url(../public/images/unnamed.jpg);
+    background-size: cover; */
 }
 
 .navbar-brand {
@@ -70,7 +73,7 @@ html {
 
 .popup_bg {
 	background:rgba(0,0,0,0.4);
-	position:absolute;
+	position:fixed;
 	z-index:1;
 	height:100%;
 	width:100%;
@@ -91,6 +94,8 @@ html {
 .footer {
   background-color: rgb(146, 135, 145);
   height: 100px;
-  margin-top: 40px;
+  position: relative;
+	margin-top: -100px; 
+
 }
   
