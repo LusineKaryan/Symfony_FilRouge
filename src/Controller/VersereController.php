@@ -2,12 +2,16 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\Comments;
+use App\Form\CommentsType;
 use App\Repository\ProduitRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
+
 
 class VersereController extends AbstractController
 {
@@ -46,12 +50,47 @@ class VersereController extends AbstractController
       /**
      * @Route("/oeuvres/{id}", name="versere_show")
      */
-    public function show($id, ProduitRepository $repo): Response 
+    public function show($id, ProduitRepository $repo, request $request): Response 
     {
-        $produit = $repo->find($id);
+        $produit = $repo->findOneBy(['id' => $id]);
+
+        //Partie commentaires
+        //On crée le commentaire "vierge"
+        $comment = new Comments;
+
+        //On génère le formulaire
+        $commentForm = $this->createForm(CommentsType::class, $comment);
+
+        $commentForm->handleRequest($request);
+
+        //Traitement du formulaire
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+            $comment->setCreatedAt(new DateTime());
+            $comment->setProduit($produit);
+
+            //On récupère le contenu du champ parentid
+            $parentid = $commentForm->get("parentid")->getData();
+
+            //On va chercher le commentaire correspondant
+            $em = $this->getDoctrine()->getManager();
+
+            if($parentid != null){
+               $parent = $em->getRepository(Comments::class)->find($parentid); 
+            }
+            
+            //On définit le parent
+            $comment->setParent($parent ?? null);
+            
+            $em->persist($comment);
+            $em->flush();
+
+            $this->addFlash('message', 'Votre commentaire a bien été envoyé');
+            return $this->redirectToRoute('versere_show', ['id' => $produit->getId()]);
+        }
        
         return $this->render('versere/show.html.twig',[
-            'produit' => $produit
+            'produit' => $produit,
+            'commentForm' => $commentForm->createView()
             
         ]);
     }

@@ -7,8 +7,10 @@
 <style>
     .image {width: 300px; height:auto;}
     .h2 {margin:30px auto;}
-    .btn { background-color: #b6b1b5; border: 1px solid #70185d; color: #70185d;}
+    .btn { background-color: #b6b1b5; border: 1px solid #70185d; color: #70185d; margin: 10px 0;}
     .btn:hover{ background-color: #a87a9e; border: 2px solid #70185d; box-shadow: 2px 2px 2px 2px #7a787a;}
+    .card {padding:15px; background-color: rgb(206, 200, 201); box-shadow: 2px 2px grey;}
+    .card p{font-size: 14px; margin-bottom: 0;}
     
 </style>
 
@@ -28,8 +30,8 @@
                     <hr>
                     <h6>Prix : {{ produit.prix }} €</h6>
 
-                    <br><br>
-                    <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a><br>
+                    <br>
+                    <a href="{{ path('cart_add', {'id':produit.id}) }}" class="btn btn-success"><i class="fas fa-shopping-cart mr-1"></i>Ajouter</a><br><br>
                 </div>
             
             </div>
@@ -38,6 +40,44 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
         
+        <div class="grix xs2 sm3 gutter-0 card">
+            <div class="col-xs2 col-sm3">
+                <h3>Liste des commentaires</h3>
+            {% for comment in produit.comments %}
+                {% if comment.parent == null %}
+                    <h5>Commentaire {{loop.index}}</h5>
+                    <p>Publié par {{comment.nickname}} le {{comment.createdAt|date("d/m/Y H:i")}}</p>
+                    <div>{{comment.content}}</div>
+                    <p><a href="#ajout-commentaire" data-reply data-id="{{comment.id}}" class="btn">Répondre</a></p>
+
+                    {# On affiche les réponses #}
+                    {% for reply in comment.replies %}
+                        <p>Réponse publié par {{reply.nickname}} le {{reply.createdAt|date("d/m/Y H:i")}}</p>
+                        <div>{{reply.content}}</div><br>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div class="col-xs2 col-sm3" id="ajout-commentaire">
+                <h4>Ajouter un commentaire</h4>
+                {{ form(commentForm) }}
+            </div>
+        </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload = () => {
+            //On met un écouteur d'évènements sur tous les boutons répondre
+            document.querySelectorAll("[data-reply]").forEach(element => {
+                element.addEventListener("click", function(){
+                    document.querySelector("#comments_parentid").value = this.dataset.id;
+                });
+            });
+        }
+
+        
+    </script>
 {% endblock %}
