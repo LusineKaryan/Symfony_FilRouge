@@ -61,6 +61,11 @@ class Produit
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $paragraph;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -181,6 +186,18 @@ class Produit
                 $comment->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getParagraph(): ?string
+    {
+        return $this->paragraph;
+    }
+
+    public function setParagraph(?string $paragraph): self
+    {
+        $this->paragraph = $paragraph;
 
         return $this;
     }

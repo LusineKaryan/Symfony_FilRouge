@@ -11,7 +11,20 @@
     .btn a { color: #70185d; text-decoration:none; }
      a.page-link {color: #70185d;}
     .active a.page-link {color:blanchedalmond; background-color:#772953; border-color: #70185d}
-    .active a.page-link:hover {color:teal;}    
+    .active a.page-link:hover {color:teal;} 
+
+    .size {
+    padding: 5px;
+    overflow: hidden; /* Обрезаем содержимое */ 
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+     /* text-overflow: ellipsis;
+     white-space: nowrap; */
+    }
+    /* .size:hover {
+    white-space: normal; 
+    }  */   
 </style>
 
     <h1 class="page-title">{{ controller_name }}! </h1>
@@ -35,7 +48,7 @@
                 
                 <p>{{ produit.resume }}</p>
                
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia dolorem. Dolore a cupiditate perferendis veritatis praesentium cum est, consectetur ex, sit quae, totam tenetur? Earum exercitationem totam optio eius!</p>
+                <div  class="size"><p>{{ produit.paragraph }}</p></div>
                 <br>
                 <a href="{{ path('versere_show', {id :produit.id}) }}" class="btn">Voire plus...</a>
                 
