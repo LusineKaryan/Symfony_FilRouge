@@ -14,7 +14,7 @@ body {
 }
 
 .navbar-brand {
-    font-size:30px;
+    padding:0;
 }
 
 .example-wrapper { 
@@ -93,7 +93,7 @@ body {
 
 .footer {
   background-color: rgb(146, 135, 145);
-  height: 100px;
+  height: 200px;
   position: relative;
 	margin-top: -100px; 
 
