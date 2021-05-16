@@ -6,7 +6,7 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-        <link rel="shortcut icon" href="{{ asset('images/icons/Group2.png') }}" type="image/png"/>
+        <link rel="shortcut icon" href="{{ asset('images/icons/AV.png') }}" type="image/png"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/united/bootstrap.min.css" integrity="sha512-D/XTI3HHxegvO0hcG75yd++4QyP+AM5IqkxFRu1KBhBQYwxYdWi+JP9DlBppR3GiMBXlAZWuw2qmHQWobofXQA==" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
@@ -21,7 +21,8 @@
             .btn-secondary:hover { box-shadow: 3px 3px 3px 3px grey;}
             .logo{ width:110px;}
             .réseau_social a{ padding:2%; }
-            .contact p{ padding-top:15px;}
+            .contacts{ padding-top:40px;}
+            .contacts a{ color:black;}
             .navbar-brand { padding:0;}
             .nav-link{ font-size: 20px;}
         </style>
@@ -98,18 +99,19 @@
     </body>
     <div class="footer">
         <div class="container">
-            <div class="row align-items-center justify-content-around">
-                <div class="col-sm-4">
-                    <h6><b>@Copyright 2021</b></h6>
+            <div class="row align-items-center">
+                <div class="col-xs-6 col-md-4">
+                    <h6><b>@AniVersere 2021</b></h6>
                 </div>
-                <div class="contact col-sm-5">
-                    <p><u>Téléphone:</u> &nbsp; (+33)143777777</p> 
-                    <p><u>E-mail:</u> &nbsp; contact@adresse.fr</p>
-                    <p><u>Adresse:</u> &nbsp; 5 rue d'Anjou, Creteil, France</p> 
+                <div class="contacts col-xs-6 col-md-5">
+                    <u>Téléphone:</u> &nbsp;   <a href="#">(+33)143777777</a>  <br>
+                    <u>E-mail:</u> &nbsp; <a href="#">contact@adresse.fr</a>  <br>
+                    <u>Adresse:</u> &nbsp; 5 rue d'Anjou, Creteil, France 
                 </div>
-                <div class="réseau_social col-sm-3">
-                    <a href="https://www.facebook.com/help/?helpref=hc_global_nav&rdrhc"><img src="{{ asset('images/icons/icon_f.png') }}" alt="facebook"></a>
-                    <a href="https://help.twitter.com/fr"><img src="{{ asset('images/icons/icon_t.png') }}" alt="twitter"></a>
+                <div class="réseau_social  col-md-3">
+                    Suivez-nous: 
+                    <a href="https://www.facebook.com/help/?helpref=hc_global_nav&rdrhc" target="_blank"><img src="{{ asset('images/icons/icon_f.png') }}" alt="facebook"></a>
+                    <a href="https://help.twitter.com/fr" target="_blank"><img src="{{ asset('images/icons/icon_t.png') }}" alt="twitter"></a>
                     <a href="#"><img src="{{ asset('images/icons/icon_i.png') }}" alt="instagram"></a>
                 </div>
             </div>          
