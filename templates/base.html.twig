@@ -21,7 +21,7 @@
             .btn-secondary:hover { box-shadow: 3px 3px 3px 3px grey;}
             .navbar-brand { padding:0;}
             .logo{ width:110px;}
-            .réseau_social a{ padding:2%; }
+            .réseau_social a{ padding:2%; color: hsl(313, 63%, 21%);}
             .contacts{ padding-top:40px;}
             .contacts a{ color:black;}
             
@@ -77,12 +77,12 @@
                     {% if app.user %}
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{app.user.name }}</a>
-                    <div class="dropdown-menu" style="left: -40px;">
+                    <div class="dropdown-menu" style="left: -40px;">   
                         {% if 'ROLE_ADMIN' in app.user.roles %}
                         <a class="dropdown-item" href="/admin"><i class="fa fa-unlock"></i>Tableau de bord</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
                         {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
                     </div>
                     </li>
                     {% else %}
@@ -110,10 +110,11 @@
                     <u>Adresse:</u> &nbsp; 5 rue d'Anjou, Creteil, France 
                 </div>
                 <div class="réseau_social  col-md-3">
-                    Suivez-nous: 
-                    <a href="https://www.facebook.com/help/?helpref=hc_global_nav&rdrhc" target="_blank"><img src="{{ asset('images/icons/icon_f.png') }}" alt="facebook"></a>
-                    <a href="https://help.twitter.com/fr" target="_blank"><img src="{{ asset('images/icons/icon_t.png') }}" alt="twitter"></a>
-                    <a href="#"><img src="{{ asset('images/icons/icon_i.png') }}" alt="instagram"></a>
+                    Suivez-nous: <br>
+                    <a href="https://www.facebook.com/help/?helpref=hc_global_nav&rdrhc" target="_blank"><i class="fab fa-facebook-square fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://help.twitter.com/fr" target="_blank"><i class="fab fa-twitter-square fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-youtube-square fa-lg"></i></a>
                 </div>
             </div>          
         </div>
