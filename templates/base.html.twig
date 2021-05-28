@@ -53,25 +53,34 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('home') }}">Accueil
+                        <a class="nav-link" href="{{ path('home') }}">{% trans %}Home{% endtrans %}
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('versere') }}">Œuvres</a>
+                        <a class="nav-link" href="{{ path('versere') }}">{% trans %}Product{% endtrans %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('cart_index') }}">Panier</a>
+                        <a class="nav-link" href="{{ path('cart_index') }}">{% trans %}Pannier{% endtrans %}</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% for locale in locales %}
+                        {% if locale != app.request.locale %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('change_locale', {'locale': locale})}}"><img src="{{ asset('images/icons/'~locale~'.png') }}" alt="{{locale}}" style="width:60px"></a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}     
+                </ul>
                 
-                <form class="form-inline my-2 my-lg-0">
+                {# <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> #}
 
                 <ul class="nav navbar-nav float-md-right">
                     {% if app.user %}
@@ -79,15 +88,15 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{app.user.name }}</a>
                     <div class="dropdown-menu" style="left: -40px;">   
                         {% if 'ROLE_ADMIN' in app.user.roles %}
-                        <a class="dropdown-item" href="/admin"><i class="fa fa-unlock"></i>Tableau de bord</a>
+                        <a class="dropdown-item" href="/admin"><i class="fa fa-unlock"></i>{% trans %}Dashboard{% endtrans %}</a>
                         <div class="dropdown-divider"></div>
                         {% endif %}
-                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">{% trans %}Sign out{% endtrans %}</a>
                     </div>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                        <a class="nav-link" href="{{ path('app_login') }}">{% trans %}Connection{% endtrans %}</a>
                     </li>
                     {% endif %}
                 </ul>

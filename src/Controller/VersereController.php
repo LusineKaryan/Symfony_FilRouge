@@ -10,6 +10,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -32,7 +33,7 @@ class VersereController extends AbstractController
         ); 
 
         return $this->render('versere/index.html.twig', [
-            'controller_name' => 'Œuvres d\'artistes',
+            
             'produits' => $produits
         ]);
     }
@@ -50,7 +51,7 @@ class VersereController extends AbstractController
       /**
      * @Route("/oeuvres/{id}", name="versere_show")
      */
-    public function show($id, ProduitRepository $repo, request $request): Response 
+    public function show($id, ProduitRepository $repo, request $request, TranslatorInterface $translator): Response 
     {
         $produit = $repo->findOneBy(['id' => $id]);
 
@@ -84,7 +85,9 @@ class VersereController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
-            $this->addFlash('message', 'Votre commentaire a bien été envoyé');
+            $message = $translator->trans('Your comment has been sent');
+
+            $this->addFlash('message', $message);
             return $this->redirectToRoute('versere_show', ['id' => $produit->getId()]);
         }
        

@@ -16,6 +16,12 @@
 
     <div class="content">
         <h2 class="h2">Description détaillée de la peinture</h2>
+
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
