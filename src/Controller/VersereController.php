@@ -86,8 +86,9 @@ class VersereController extends AbstractController
             $em->flush();
 
             $message = $translator->trans('Your comment has been sent');
-
+            
             $this->addFlash('message', $message);
+            
             return $this->redirectToRoute('versere_show', ['id' => $produit->getId()]);
         }
        
